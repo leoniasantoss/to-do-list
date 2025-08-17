@@ -19,8 +19,6 @@ Permite adicionar, marcar como concluída e remover tarefas.
 - Adicionar datas e lembretes  
 - Transformar em PWA para instalar no celular  
 
-## Prévia
-![Exemplo da Lista de Tarefas](https://via.placeholder.com/600x300.png?text=Preview+do+App)
 
----
-Feito com ❤️ para estudos.
+
+
