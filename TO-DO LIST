@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Tarefas</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+    h1 { text-align: center; }
+    #taskInput { padding: 10px; width: 70%; }
+    #addBtn { padding: 10px; }
+    ul { list-style: none; padding: 0; }
+    li { background: #fff; margin: 5px 0; padding: 10px; display: flex; justify-content: space-between; border-radius: 5px; }
+    .done { text-decoration: line-through; color: gray; }
+    button { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Minha Lista de Tarefas</h1>
+  <input type="text" id="taskInput" placeholder="Digite uma tarefa">
+  <button id="addBtn">Adicionar</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    const input = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const taskList = document.getElementById("taskList");
+
+    addBtn.addEventListener("click", () => {
+      if (input.value.trim() === "") return;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span>${input.value}</span>
+        <div>
+          <button onclick="doneTask(this)">✔</button>
+          <button onclick="removeTask(this)">✖</button>
+        </div>
+      `;
+      taskList.appendChild(li);
+      input.value = "";
+    });
+
+    function doneTask(btn) {
+      btn.parentElement.parentElement.querySelector("span").classList.toggle("done");
+    }
+
+    function removeTask(btn) {
+      btn.parentElement.parentElement.remove();
+    }
+  </script>
+</body>
+</html>
